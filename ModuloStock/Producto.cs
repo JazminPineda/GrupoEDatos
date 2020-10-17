@@ -10,13 +10,13 @@ namespace ModuloStock
         private int codigo;
         private string nombre;
         private double precio;
-        private Stack<string> elementos;
-        public Producto( int codigo, string nombre, double precio) 
+        private Stack<string> elementos;//atributo
+        public Producto( int codigo, string nombre, double precio) // constructor de la clase
         {
             this.codigo = codigo;
             this.nombre = nombre;
             this.precio = precio;
-            this.elementos = new Stack<string>(); // constructor
+            this.elementos = new Stack<string>(); // constructor de la pila
 
         }
 
