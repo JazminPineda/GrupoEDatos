@@ -6,9 +6,10 @@ namespace ModuloStock
 {
     public class Stock //se crea la clase stock para compartir funcionalidades en comun admin y usuario.
     {
+        public static readonly Stock stock = new Stock();
         private List<Producto> listaProductos;  // la lista es una lista de productos esto es un atribuo de la clase de stock
         private const int cantidadMaxima = 5; // se crea un atributo del maximo de elementos por cada producto. 
-        public Stock()// Defino constructor 
+        private Stock()// Defino constructor 
         {
             this.listaProductos = new List<Producto>();  //Inicializo el atributo con una nueva lista de productos 
         }
@@ -44,12 +45,23 @@ namespace ModuloStock
                     //agregar func admon 5max//
                 }
             }
-            
         }
         
         public void AgregarProducto(Producto producto)
         {
             this.listaProductos.Add(producto);
+        }
+
+        public double ObtenerPrecio(int codProducto) //EDIT Eze: función para obtener el precio del producto
+
+        {
+            return listaProductos[codProducto - 1].MostrarPrecio();
+        }
+
+        public string ObtenerNombreProducto(int codProducto) //Edit Eze: función para obtener el nombre del producto
+
+        {
+            return listaProductos[codProducto - 1].MostrarNombre();
         }
 
         public string ObtenerProducto(int codProducto)
@@ -61,6 +73,7 @@ namespace ModuloStock
                     return listaProductos[i].QuitarElemento();//se quita el elemento del producto llamando la pila 
                 }
             }
+            return "Test";
         }
 
 
@@ -73,6 +86,7 @@ namespace ModuloStock
             {
                 Console.WriteLine(format, listaProductos[i].MostrarCodigo(), listaProductos[i].MostrarNombre(),
                    listaProductos[i].MostrarCantidad(),listaProductos[i].MostrarPrecio());
+                
             }
                
             Console.ReadLine();

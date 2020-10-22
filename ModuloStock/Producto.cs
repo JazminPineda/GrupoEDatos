@@ -48,6 +48,5 @@ namespace ModuloStock
         {
             return this.elementos.Count;//Herenda la propiedad Count 
         }
-
     }
 }
