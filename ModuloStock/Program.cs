@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace ModuloStock
 {
@@ -44,12 +45,13 @@ namespace ModuloStock
 
             //}
 
-            Stock stockInv = new Stock(); //tipo luego nombre(variable) Se crea la instancia de la clase stock
-                                          // en la variable stockInv//
-            stockInv.InicializarStock(); // se inicializa el stock
-            stockInv.ImprimirProductos();//se llama la funcion imprimir de la clase stock
+            Stock.stock.InicializarStock();
+            //Stock producto = new Stock();
+            //producto.InicializarStock();
+            VentanaInicio inicio = new VentanaInicio();
+            inicio.IniciarAplicacion();
             
-            Console.ReadLine();
-        }   
+            //Console.ReadLine();
+        }
     }
 }
