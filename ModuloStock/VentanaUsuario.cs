@@ -50,10 +50,12 @@ namespace ModuloStock
 
         public void comprarProducto(int producto)
         {
-            if (montoInicial - Stock.stock.ObtenerPrecio(producto) > 0)
+            double saldo = saldoDisponible(montoInicial, Stock.stock.ObtenerPrecio(producto));
+
+            if (saldo > 0)
             {
                 list.Enqueue(Stock.stock.ObtenerNombreProducto(producto));
-                montoInicial = montoInicial - Stock.stock.ObtenerPrecio(producto);
+                montoInicial= saldo;
                 Stock.stock.ObtenerProducto(producto);
                 //usuarios.ObtenerProducto(productoNro);
                 comprarDevuelta(list);
@@ -139,11 +141,15 @@ namespace ModuloStock
                     break;
             }*/
         }
+        public double saldoDisponible(double saldoCuenta, double precioProducto)
+        {
+            return saldoCuenta - precioProducto;
+        }
 
         public void menuOpciones()
         {
             string opcionUsuario;
-
+            
             Console.WriteLine("Menu Usuario: \n1) Saldo disponible \n2) Comprar \n3) Salir");
             Console.WriteLine("\nIngrese una opción:");
             opcionUsuario = Console.ReadLine();
@@ -152,8 +158,11 @@ namespace ModuloStock
                 int opcionUsuarioNro = Convert.ToInt32(opcionUsuario);
                 switch (opcionUsuarioNro)
                 {
-                    case 1:
-                        Console.WriteLine("En construcción...");
+                    case 1:                        
+                        //saldoDisponible(montoInicial, Y);
+                        Console.WriteLine("Tu saldo es: " + montoInicial);
+                        Console.ReadKey();
+                        ventanaUsuario();
                         break;
                     case 2:
                         Console.WriteLine("\nIngrese el número del producto que quiere:");

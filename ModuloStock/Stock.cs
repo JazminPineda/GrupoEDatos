@@ -89,7 +89,7 @@ namespace ModuloStock
                 
             }
                
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
