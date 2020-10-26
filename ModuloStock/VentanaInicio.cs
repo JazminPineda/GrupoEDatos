@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace ModuloStock
@@ -20,17 +18,11 @@ namespace ModuloStock
                                                              
                                                              ";
             Console.WriteLine(titulo);
-            // en la variable stockInv//
-            
-            //stockInv.ImprimirProductos();//se llama la funcion imprimir de la clase stock
-
             Console.Write("Ingresa tu codigo de usuario: ");
             Console.ReadLine();
-            Thread.Sleep(1000);
-            //Stock.stock.InicializarStock();
-            //stockInv.InicializarStock();
+            Thread.Sleep(500);
             VentanaUsuario user = new VentanaUsuario();
-            user.ventanaUsuario();
+            user.PanelUsuario();
         }
     }
 }
