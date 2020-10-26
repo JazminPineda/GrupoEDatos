@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ModuloStock
 {
@@ -17,17 +14,20 @@ namespace ModuloStock
             this.nombre = nombre;
             this.precio = precio;
             this.elementos = new Stack<string>(); // constructor de la pila
-
         }
 
-        public void AgregarElemento(string nombre)
+        public void AgregarElemento(int nombre)
         {
-            this.elementos.Push(nombre);
-
+            this.elementos.Push($"{nombre}");
         }
         public string QuitarElemento()
         {
             return this.elementos.Pop();
+        }
+
+        public void ReiniciarElementos()
+        {
+            this.elementos.Clear();
         }
 
         public int MostrarCodigo()
