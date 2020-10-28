@@ -8,7 +8,6 @@ namespace ModuloStock
         public static readonly Stock stock = new Stock();
         private List<Producto> listaProductos;  // la lista es una lista de productos esto es un atribuo de la clase de stock
         private const int cantidadMaxima = 5; // se crea un atributo del maximo de elementos por cada producto. 
-        private int addProducto = 1;
         private int cantidadStock;
         Dictionary<String, int> addStock = new Dictionary<string, int>();
 
@@ -37,10 +36,17 @@ namespace ModuloStock
             }
         }
 
-        public void AgregarProducto(string prod, double valor)
+        /*
+        public void AgregarProducto1(string prod, double valor)
         {
             listaProductos.Add(new Producto(addProducto, prod, valor));
-            addProducto++; // Variable que sirve para agregar el codigo del producto
+            addProducto++;
+        }*/
+
+        public void AgregarProducto(Producto producto)
+        {
+            listaProductos.Add(producto);
+            //addProducto++; // Variable que sirve para agregar el codigo del producto
         }
 
         public void AgregarStock(int cod, int cant)
