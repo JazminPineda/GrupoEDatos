@@ -7,6 +7,9 @@ namespace ModuloStock
     {
         public void IniciarAplicacion()
         {
+            VentanaAdmin admin = new VentanaAdmin();
+            int usuario;
+
             Console.Title = "Trabajo Practico Estructura de datos.";
             string titulo = @"                 
              _____  ______  _______  _____        __   ___  
@@ -18,11 +21,18 @@ namespace ModuloStock
                                                              
                                                              ";
             Console.WriteLine(titulo);
-            Console.Write("Ingresa tu codigo de usuario: ");
-            Console.ReadLine();
-            Thread.Sleep(500);
-            VentanaUsuario user = new VentanaUsuario();
-            user.PanelUsuario();
+            Console.WriteLine("Ingresa tu codigo de usuario: Ingresá 00 para entrar como administrador");
+            usuario = Convert.ToInt32(Console.ReadLine());
+            if (usuario == 00)
+            {
+                admin.PanelAdmin();
+            }
+            else
+            {
+                Thread.Sleep(500);
+                VentanaUsuario user = new VentanaUsuario();
+                user.PanelUsuario();
+            }
         }
     }
 }
