@@ -26,7 +26,7 @@ namespace ModuloStock
 
             Console.Write("Ingresa tu codigo de usuario: ");
             Console.ReadLine();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             //Stock.stock.InicializarStock();
             //stockInv.InicializarStock();
             VentanaUsuario user = new VentanaUsuario();
