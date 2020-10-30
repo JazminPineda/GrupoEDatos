@@ -7,14 +7,13 @@ namespace ModuloStock
         private static int actual_codigo;
         protected int codigo;
         protected String name;
-        protected double balance;
         protected String type;
 
         public Usuario()
         {
             codigo = 00;
             name = "Nombre";
-            balance = 1.2;
+            Balance = 1.2;
             type = "e";
         }
 
@@ -32,8 +31,8 @@ namespace ModuloStock
 
         public double Balance
         {
-            get { return balance; }
-            set { Balance = value; }
+            get;
+            set;
         }
 
         public String Type
@@ -46,7 +45,7 @@ namespace ModuloStock
         {
             this.codigo = GetNextID();
             this.name = name;
-            this.balance = balance;
+            this.Balance = balance;
             this.type = type;
         }
 

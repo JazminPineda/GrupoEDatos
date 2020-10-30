@@ -57,8 +57,8 @@ namespace ModuloStock
                 }
                 else
                 {
-                    VentanaUsuario user = new VentanaUsuario();
-                    user.ventanaUsuario();
+                    VentanaUsuario ventanaUsuario = new VentanaUsuario();
+                    ventanaUsuario.ventanaUsuario(usuario);
                 }
 
             }

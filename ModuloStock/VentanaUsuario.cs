@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Threading;
 
 namespace ModuloStock
 {
@@ -10,15 +8,15 @@ namespace ModuloStock
     {
         //Stock usuarios = new Stock();
         VentanaInicio inicio = new VentanaInicio();
-        private double montoInicial = 50; //Variable temporal
         private string producto;
         private Queue<string> list = new Queue<string>();
+        private Usuario Usuario = null;
 
-        public void ventanaUsuario()
+        public void ventanaUsuario(Usuario usuario) // recibe credito del usuario
         {
-
+            Usuario = usuario; // atributo usuario
             Console.Clear();
-            Console.WriteLine($"Usuario: IFTS \nSaldo: {montoInicial} \n\nLista de productos:");
+            Console.WriteLine($"Usuario: IFTS \nSaldo: {Usuario.Balance} \n\nLista de productos:");// atributo usuario con una propied balance  de la instancia Usuario
             Stock.stock.ImprimirProductos();
             menuOpciones();
 
@@ -33,7 +31,7 @@ namespace ModuloStock
             while (respuesta.ToLower() == "si")
             {
                 Console.Clear();
-                Console.WriteLine($"Usuario: IFTS \nSaldo: {montoInicial} \n\nLista de productos:");
+                Console.WriteLine($"Usuario: IFTS \nSaldo: {Usuario.Balance} \n\nLista de productos:");
                 Stock.stock.ImprimirProductos();
                 ComprarProducto();
                 Console.WriteLine("Desea seguir comprando? SI / NO");
@@ -52,11 +50,11 @@ namespace ModuloStock
                 int productoNro = Convert.ToInt32(producto);
                 if (productoNro > 0 && productoNro < 5)
                 {
-                    double saldo = saldoDisponible(montoInicial, Stock.stock.ObtenerPrecio(productoNro));
+                    double saldo = saldoDisponible(Usuario.Balance, Stock.stock.ObtenerPrecio(productoNro));
                     if (saldo > 0)
                     {
                         list.Enqueue(Stock.stock.ObtenerNombreProducto(productoNro));
-                        montoInicial = saldo;
+                        Usuario.Balance = saldo;
                         Stock.stock.ObtenerProducto(productoNro);
                     }
                     else
@@ -98,9 +96,9 @@ namespace ModuloStock
                 {
                     case 1:
                         //saldoDisponible(montoInicial, Y);
-                        Console.WriteLine("Tu saldo es: " + montoInicial);
+                        Console.WriteLine("Tu saldo es: " + Usuario.Balance);
                         Console.ReadKey();
-                        ventanaUsuario();
+                        ventanaUsuario(Usuario);
                         break;
                     case 2:
                         comprar();
@@ -113,8 +111,8 @@ namespace ModuloStock
                         bool sepudoconvertir = double.TryParse(respuesta4, out monto);
                         if (sepudoconvertir)
                         {
-                            this.montoInicial = montoInicial + monto;
-                            Console.WriteLine("Su nuevo saldo es: {0}", this.montoInicial);
+                            this.Usuario.Balance = Usuario.Balance + monto;
+                            Console.WriteLine("Su nuevo saldo es: {0}", this.Usuario.Balance);
                         }
                         while (!sepudoconvertir)
                         {
@@ -124,12 +122,12 @@ namespace ModuloStock
                             sepudoconvertir = double.TryParse(respuesta4, out monto);
                             if (sepudoconvertir)
                             {
-                                this.montoInicial = montoInicial + monto;
-                                Console.WriteLine("Su nuevo saldo es: {0}", this.montoInicial);
+                                this.Usuario.Balance = Usuario.Balance + monto;
+                                Console.WriteLine("Su nuevo saldo es: {0}", this.Usuario.Balance);
                             }
                         }
 
-                        ventanaUsuario();
+                        ventanaUsuario(Usuario);
                         break;
                     case 4:
                         string salidaProducto = " ";
@@ -148,7 +146,7 @@ namespace ModuloStock
                         Console.WriteLine("La opción no existe.");
                         Console.ReadLine();
                         Console.Clear();
-                        ventanaUsuario();
+                        ventanaUsuario(Usuario);
                         break;
                 }
             }
@@ -156,7 +154,7 @@ namespace ModuloStock
             {
                 Console.WriteLine("Codigo invalido, volvé a intentarlo");
                 Console.ReadLine();
-                ventanaUsuario();
+                ventanaUsuario(Usuario);
             }
         }
     }
