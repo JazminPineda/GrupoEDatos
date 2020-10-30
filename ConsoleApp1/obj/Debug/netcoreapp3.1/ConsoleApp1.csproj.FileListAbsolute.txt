@@ -24,3 +24,16 @@ D:\Repositorios\GrupoEDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.cspr
 D:\Repositorios\GrupoEDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
 D:\Repositorios\GrupoEDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
 D:\Repositorios\GrupoEDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+D:\Repositorios\JazGrupoDatos\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache

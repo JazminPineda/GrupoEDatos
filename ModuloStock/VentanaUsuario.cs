@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading;
 
 namespace ModuloStock
@@ -131,7 +132,17 @@ namespace ModuloStock
                         ventanaUsuario();
                         break;
                     case 4:
+                        string salidaProducto = " ";
+                        Console.WriteLine("Sus productos disponbles en bandeja son:"); // Cola de productos, muestra la compra total de productos
+
+                        while (list.Any())
+                        {
+                            salidaProducto = (string)list.Dequeue();
+                            Console.WriteLine(salidaProducto);
+                        }
+
                         Console.WriteLine("Muchas gracias por su compra.");
+
                         break;
                     default:
                         Console.WriteLine("La opción no existe.");

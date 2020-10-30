@@ -9,13 +9,14 @@ namespace ConsoleApp1
         {
             List<Usuario> listUsu = new List<Usuario>();
 
-            listUsu.Add(new Usuario("Juan", 1.2, "e"));
-            listUsu.Add(new Usuario("Mariel", 2.3, "a"));
-            listUsu.Add(new Usuario("Juana", 6.5, "e"));
+            listUsu.Add(new Usuario("Juan Perez", 1.2, "e"));
+            listUsu.Add(new Usuario("Mariela Campos", 2.3, "a"));
+            listUsu.Add(new Usuario("Juana Lopez", 6.5, "e"));
 
             foreach (var usuario in listUsu)
             {
-                Console.WriteLine("CODIGO: {0}, NOMBRE: {1}, BALANCE: {2}, TIPO: {3}", usuario.Codigo, usuario.Name, usuario.Balance, usuario.Type);
+                string format = "{0,-10}{1,-30}{2,12}{3,12:N2}";// 
+                Console.WriteLine(format, "Legajo: {0}, Nombre {1},   Credito Disponible: {2},   Tipo: {3}", usuario.Codigo, usuario.Name, usuario.Balance, usuario.Type);
             }
         }
 
@@ -29,7 +30,7 @@ namespace ConsoleApp1
 
             public Usuario()
             {
-                codigo = 0;
+                codigo = 00;
                 name = "Nombre";
                 balance = 1.2;
                 type = "e";
