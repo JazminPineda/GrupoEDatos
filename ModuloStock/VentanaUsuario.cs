@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
 
 namespace ModuloStock
 {
@@ -54,7 +56,7 @@ namespace ModuloStock
                     {
                         list.Enqueue(Stock.stock.ObtenerNombreProducto(productoNro));
                         montoInicial = saldo;
-                        Stock.stock.ObtenerProducto(productoNro); 
+                        Stock.stock.ObtenerProducto(productoNro);
                     }
                     else
                     {
@@ -84,7 +86,7 @@ namespace ModuloStock
         {
             string opcionUsuario;
 
-            Console.WriteLine("Menu Usuario: \n1) Saldo disponible \n2) Comprar \n3) Salir");
+            Console.WriteLine("Menu Usuario: \n1) Saldo disponible \n2) Comprar \n3) Agregar crédito \n4) Salir");
             Console.WriteLine("\nIngrese una opción:");
             opcionUsuario = Console.ReadLine();
 
@@ -102,7 +104,33 @@ namespace ModuloStock
                     case 2:
                         comprar();
                         break;
+
                     case 3:
+                        Console.WriteLine("Ingrese el monto que a acreditar");
+                        string respuesta4 = Console.ReadLine();
+                        double monto = 0;
+                        bool sepudoconvertir = double.TryParse(respuesta4, out monto);
+                        if (sepudoconvertir)
+                        {
+                            this.montoInicial = montoInicial + monto;
+                            Console.WriteLine("Su nuevo saldo es: {0}", this.montoInicial);
+                        }
+                        while (!sepudoconvertir)
+                        {
+                            Console.WriteLine("\nLo ingresado no es válido ({0})", respuesta4);
+                            Console.WriteLine("\n\nIngrese nuevamente el monto que a acreditar");
+                            respuesta4 = Console.ReadLine();
+                            sepudoconvertir = double.TryParse(respuesta4, out monto);
+                            if (sepudoconvertir)
+                            {
+                                this.montoInicial = montoInicial + monto;
+                                Console.WriteLine("Su nuevo saldo es: {0}", this.montoInicial);
+                            }
+                        }
+
+                        ventanaUsuario();
+                        break;
+                    case 4:
                         Console.WriteLine("Muchas gracias por su compra.");
                         break;
                     default:
