@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ModuloStock
 {
-    public class Producto
+    public class Producto  // se crea la CLASE producto 
     {
         private int codigo;
         private string nombre;
@@ -19,8 +19,11 @@ namespace ModuloStock
             this.elementos = new Stack<string>(); // constructor de la pila
 
         }
-
-        public void AgregarElemento(string nombre)
+        public void ReiniciarElementos()
+        {
+            this.elementos.Clear();
+        }
+        public void AgregarElemento(string nombre)// se crean metodos del producto 
         {
             this.elementos.Push(nombre);
 
@@ -46,7 +49,7 @@ namespace ModuloStock
         
         public int MostrarCantidad()
         {
-            return this.elementos.Count;//Herenda la propiedad Count 
+            return this.elementos.Count;// 
         }
     }
 }
