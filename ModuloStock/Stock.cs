@@ -73,7 +73,7 @@ namespace ModuloStock
             {
                 if (codProducto == listaProductos[i].MostrarCodigo())//ingresamos al producto y obtenemos codigo para comparar
                 {
-                    
+
                     break;
                 }
             }//se quita con el indicie un elmento del producto llamando la pila Quitar elemento
@@ -89,7 +89,7 @@ namespace ModuloStock
 
         public bool ExisteElCodigo(int codigoProducto) //verifica si existe el codigo o no
         {
-           return listaProductos.Exists(x => x.MostrarCodigo() == codigoProducto);// llaama la funcion exist para saber si existe el cod en la lista
+            return listaProductos.Exists(x => x.MostrarCodigo() == codigoProducto);// llaama la funcion exist para saber si existe el cod en la lista
         }
 
         public void ImprimirProductos()
@@ -105,5 +105,21 @@ namespace ModuloStock
 
             //Console.ReadLine();
         }
+        public static int ValidarCodProducto(string codigoProducto)
+        {
+            int codigoNumero = 0;
+            bool esNumero = int.TryParse(codigoProducto, out codigoNumero); // out codinumer es la salida en entero, el resulta se guarda en un booleano para luego usarlo en valadaciones
+            while (!esNumero || !Stock.stock.ExisteElCodigo(codigoNumero))// hace dos verificaciones tiene q ser numero y  si existe el cod en el stock
+            {
+                Console.WriteLine("\n\nEl codigo de producto no es válido o ya existe");
+                Console.WriteLine("\n\nIngrese nuevamente el codigo del producto:");
+                codigoProducto = Console.ReadLine();
+                esNumero = int.TryParse(codigoProducto, out codigoNumero);
+            }
+            return codigoNumero;
+        }
+
+        
     }
 }
+

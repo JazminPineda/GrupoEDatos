@@ -44,36 +44,20 @@ namespace ModuloStock
         {
             Console.WriteLine("\nIngrese el número del producto que quiere:");
             producto = Console.ReadLine();
+            int productoNro = Stock.ValidarCodProducto(producto);
 
-            if (!string.IsNullOrEmpty(producto))  //Valida que el código de producto no sea nulo
+            double saldo = saldoDisponible(Usuario.Balance, Stock.stock.ObtenerPrecio(productoNro));
+            if (saldo > 0)
             {
-                int productoNro = Convert.ToInt32(producto);
-                if (productoNro > 0 && productoNro < 5)
-                {
-                    double saldo = saldoDisponible(Usuario.Balance, Stock.stock.ObtenerPrecio(productoNro));
-                    if (saldo > 0)
-                    {
-                        list.Enqueue(Stock.stock.ObtenerNombreProducto(productoNro));
-                        Usuario.Balance = saldo;
-                        Stock.stock.ObtenerProducto(productoNro);// tiene producto
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nUsted no tiene saldo disponible");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Codigo invalido.");
-                    Console.ReadLine();
-                }
-
+                list.Enqueue(Stock.stock.ObtenerNombreProducto(productoNro));
+                Usuario.Balance = saldo;
+                Stock.stock.ObtenerProducto(productoNro);// tiene producto
             }
             else
             {
-                Console.WriteLine("Codigo invalido, volvé a intentarlo");
-                Console.ReadLine();
+                Console.WriteLine("\nUsted no tiene saldo disponible");
             }
+
         }
 
         public double saldoDisponible(double saldoCuenta, double precioProducto)
