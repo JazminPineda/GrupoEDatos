@@ -41,9 +41,9 @@ namespace ModuloStock
             set { type = value; }
         }
 
-        public Usuario(String name, double balance, String type)
+        public Usuario(int codigo, String name, double balance, String type)
         {
-            this.codigo = GetNextID();
+            this.codigo = codigo;
             this.name = name;
             this.Balance = balance;
             this.type = type;

@@ -55,7 +55,7 @@ namespace ModuloStock
                     {
                         list.Enqueue(Stock.stock.ObtenerNombreProducto(productoNro));
                         Usuario.Balance = saldo;
-                        Stock.stock.ObtenerProducto(productoNro);
+                        Stock.stock.ObtenerProducto(productoNro);// tiene producto
                     }
                     else
                     {

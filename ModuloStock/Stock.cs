@@ -21,7 +21,7 @@ namespace ModuloStock
         {
             Producto alfajor = new Producto(1, "Alfajor Jorgito", 10.5);
             Producto gaseosa = new Producto(2, "Coca-Cola", 30);
-            Producto galletitas = new Producto(3, "Galletitas Chocolinas", 35);
+            Producto galletitas = new Producto(3, "Galletitas Chocolinas", 35);//se crean lo espirales
             Producto agua = new Producto(4, "Agua", 40);
 
             listaProductos.Add(alfajor);
@@ -42,7 +42,7 @@ namespace ModuloStock
                 {
                     listaProductos[i].AgregarElemento(listaProductos[i].MostrarNombre() + j.ToString());
                     /*se recorre la lista con la posiciòn luego se agrega un elmento al producto de la lista trayendo 
-                    la funcion mostrar nombre q esta en la clase producto y se convierte j en string para identificar q se 
+                    la funcion muestra nombre q esta en la clase producto y se convierte j en string para identificar q se 
                     agrego el elemento esta es una funcion .toString*/
                     //agregar func admon 5max//
                 }
@@ -81,7 +81,7 @@ namespace ModuloStock
         }
         public void AgregarStock(int cod, int cant)
         {
-            for (int j = 0; j < cant; j++) //se agrega un nuevo elemento de cada
+            for (int j = 0; j < cant; j++) //se agrega un nuevo elemento a cada producto (espiral)
             {
                 listaProductos.First(x => x.MostrarCodigo() == cod).AgregarElemento(listaProductos.First(x => x.MostrarCodigo() == cod).MostrarNombre());
             }

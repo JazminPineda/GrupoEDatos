@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading;
 
 namespace ModuloStock
@@ -13,15 +11,18 @@ namespace ModuloStock
 
         public VentanaInicio()
         {
-            usuarios.Add(new Usuario("Juan", 200, "e"));
-            usuarios.Add(new Usuario("Mariel", 10, "a"));
-            usuarios.Add(new Usuario("Juana", 10, "e"));
+            InizializarUsuarios();
+        }
+
+        private void InizializarUsuarios()
+        {
+            usuarios.Add(new Usuario(1, "Juan", 200, "e"));
+            usuarios.Add(new Usuario(2, "Mariel", 10, "a"));
+            usuarios.Add(new Usuario(3, "Juana", 10, "e"));
         }
 
         public void IniciarAplicacion()
         {
-
-
 
             Console.Title = "Trabajo Practico Estructura de datos.";
             string titulo = @"                 
@@ -35,12 +36,11 @@ namespace ModuloStock
                                                              ";
             Console.WriteLine(titulo);
             // en la variable stockInv//
-
             Console.Write("Ingresa tu codigo de usuario: ");
             string respuesta = Console.ReadLine();
             int codigoUsuario = 0;
             int.TryParse(respuesta, out codigoUsuario);
-            if(!usuarios.Any(x => x.Codigo == codigoUsuario))
+            if (!usuarios.Any(x => x.Codigo == codigoUsuario))
             {
                 Console.WriteLine("Error el usuario no existe, intente de nuevo");
                 Thread.Sleep(1800);
@@ -50,7 +50,7 @@ namespace ModuloStock
             else
             {
                 Usuario usuario = usuarios.First(x => x.Codigo == codigoUsuario);
-                if(usuario.Type == "a")
+                if (usuario.Type == "a")
                 {
                     VentanaAdmin admin = new VentanaAdmin();
                     admin.PanelAdmin();
