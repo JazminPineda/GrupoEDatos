@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ModuloStock
 {
@@ -10,8 +7,10 @@ namespace ModuloStock
         private int codigo;
         private string nombre;
         private double precio;
-        private Stack<string> elementos;//atributo
-        public Producto( int codigo, string nombre, double precio) // constructor de la clase
+        private Stack<string> elementos;//atributo Pila
+
+        // constructor de la clase, funciona cuando ingresa un nuevo producto a la maquina porque representa un nuevo espiral
+        public Producto( int codigo, string nombre, double precio) 
         {
             this.codigo = codigo;
             this.nombre = nombre;
@@ -23,14 +22,14 @@ namespace ModuloStock
         {
             this.elementos.Clear();
         }
-        public void AgregarElemento(string nombre)// se crean metodos del producto 
+        public void AgregarElemento(string nombre)// se agrega un elemento al espiral de la pila
         {
-            this.elementos.Push(nombre);
+            this.elementos.Push(nombre); //se introduce un nuevo elmeento con la variable nombre formando la pila 
 
         }
         public string QuitarElemento()
         {
-            return this.elementos.Pop();
+            return this.elementos.Pop();// quita el elmento q hay encima es decir que desapila estructura LIFO PEPS
         }
 
         public int MostrarCodigo()

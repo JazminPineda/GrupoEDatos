@@ -51,12 +51,12 @@ namespace ModuloStock
             Console.WriteLine("Ingrese el precio del producto:");
             precio = Convert.ToDouble(Console.ReadLine());
 
-            Stock.stock.AgregarProducto(new Producto(codigoNumero, producto,precio));// se guarda nuevo producto y se crea en el stock
+            Stock.stock.AgregarProducto(new Producto(codigoNumero, producto,precio));// se guarda el producto(espiral)
 
             PanelAdmin();// muestra nuevamente la lista y el menu con las opciones
         }
 
-        public void AgregarStock()
+        public void AgregarStock() //se agrega el elemento a la pila
         {
             Console.WriteLine("\nIngrese el codigo del producto:");
             string codigoProducto = Console.ReadLine();

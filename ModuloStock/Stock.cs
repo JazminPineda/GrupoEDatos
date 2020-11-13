@@ -21,7 +21,7 @@ namespace ModuloStock
         {
             Producto alfajor = new Producto(1, "Alfajor Jorgito", 10.5);
             Producto gaseosa = new Producto(2, "Coca-Cola", 30);
-            Producto galletitas = new Producto(3, "Galletitas Chocolinas", 35);
+            Producto galletitas = new Producto(3, "Galletitas Chocolinas", 35);//se crean lo espirales
             Producto agua = new Producto(4, "Agua", 40);
 
             listaProductos.Add(alfajor);
@@ -42,7 +42,7 @@ namespace ModuloStock
                 {
                     listaProductos[i].AgregarElemento(listaProductos[i].MostrarNombre() + j.ToString());
                     /*se recorre la lista con la posiciòn luego se agrega un elmento al producto de la lista trayendo 
-                    la funcion mostrar nombre q esta en la clase producto y se convierte j en string para identificar q se 
+                    la funcion muestra nombre q esta en la clase producto y se convierte j en string para identificar q se 
                     agrego el elemento esta es una funcion .toString*/
                     //agregar func admon 5max//
                 }
@@ -73,7 +73,7 @@ namespace ModuloStock
             {
                 if (codProducto == listaProductos[i].MostrarCodigo())//ingresamos al producto y obtenemos codigo para comparar
                 {
-                    
+
                     break;
                 }
             }//se quita con el indicie un elmento del producto llamando la pila Quitar elemento
@@ -81,7 +81,7 @@ namespace ModuloStock
         }
         public void AgregarStock(int cod, int cant)
         {
-            for (int j = 0; j < cant; j++) //se agrega un nuevo elemento de cada
+            for (int j = 0; j < cant; j++) //se agrega un nuevo elemento a cada producto (espiral)
             {
                 listaProductos.First(x => x.MostrarCodigo() == cod).AgregarElemento(listaProductos.First(x => x.MostrarCodigo() == cod).MostrarNombre());
             }
@@ -89,7 +89,7 @@ namespace ModuloStock
 
         public bool ExisteElCodigo(int codigoProducto) //verifica si existe el codigo o no
         {
-           return listaProductos.Exists(x => x.MostrarCodigo() == codigoProducto);// llaama la funcion exist para saber si existe el cod en la lista
+            return listaProductos.Exists(x => x.MostrarCodigo() == codigoProducto);// llaama la funcion exist para saber si existe el cod en la lista
         }
 
         public void ImprimirProductos()
@@ -105,5 +105,21 @@ namespace ModuloStock
 
             //Console.ReadLine();
         }
+        public static int ValidarCodProducto(string codigoProducto)
+        {
+            int codigoNumero = 0;
+            bool esNumero = int.TryParse(codigoProducto, out codigoNumero); // out codinumer es la salida en entero, el resulta se guarda en un booleano para luego usarlo en valadaciones
+            while (!esNumero || !Stock.stock.ExisteElCodigo(codigoNumero))// hace dos verificaciones tiene q ser numero y  si existe el cod en el stock
+            {
+                Console.WriteLine("\n\nEl codigo de producto no es válido o ya existe");
+                Console.WriteLine("\n\nIngrese nuevamente el codigo del producto:");
+                codigoProducto = Console.ReadLine();
+                esNumero = int.TryParse(codigoProducto, out codigoNumero);
+            }
+            return codigoNumero;
+        }
+
+        
     }
 }
+
